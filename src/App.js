@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import BookModel from './BookModel';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="scene" style={{ width: '100vw', height: '100vh' }}>
+        <Canvas camera={{ position: [-30, 10, 20], fov: 50 }} >
+      {/* Add lighting */}
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1.5} />
+
+      {/* Render the book model */}
+      <BookModel />
+
+      {/* Controls for orbiting and zooming the camera */}
+      <OrbitControls />
+    </Canvas>
     </div>
+  
   );
 }
 
