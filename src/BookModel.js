@@ -4,7 +4,7 @@ import { useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
 function BookModel(props) {
-  const { scene, nodes, animations } = useGLTF('/animations.glb');
+  const { scene, nodes, animations } =  useGLTF('/portfolio/animations.glb');
   const { actions } = useAnimations(animations, scene);
   const { camera } = useThree();
   const raycaster = new THREE.Raycaster();
